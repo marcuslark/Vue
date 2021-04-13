@@ -1,4 +1,4 @@
-# end
+TO RUN THE APPLICATION, FOLLOW THESE STEPS---- Terminal commands
 
 ## Project setup
 ```
