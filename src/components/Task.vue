@@ -6,6 +6,7 @@
         <h1> To Do List</h1>
       </div>
       <!-- form -->
+      <!-- Added @keyup.enter to be able to press enter-->
       <div class="form">
         <input
           type="text"
@@ -18,6 +19,10 @@
       <!-- task lists -->
       <div class="taskItems">
         <ul>
+          <!-- v-bind method here to pass the data from parent
+          to child component, and props in child component  -->
+          <!-- @emit methods "remove" and "complete" here to 
+          pass data from child(Task-item.vue) to parent(Task.vue) compontent -->
           <task-item
             v-bind:task="task"
             v-for="(task, index) in tasks"
@@ -25,6 +30,8 @@
             @remove="removeTask(index)"
             @complete="completeTask(task)"
           ></task-item>
+          <!-- v-for loop changed to (task, index) to not remove
+          the first data in the task-array -->
         </ul>
       </div>
       <!-- buttons -->
@@ -35,11 +42,18 @@
       <!-- pending task -->
       <div class="pendingTasks">
         <span>Pending Tasks: {{ incomplete }}</span>
+        <!-- Added Computed method incomplete with filter
+        of inProgress to see the amount of pending tasks -->
       </div>
     </div>
   </div>
 </template>
-
+<!-- Added props 'tasks' to send data from child to parent -->
+<!-- Added methods for the add, delete, and  to work -->
+<!-- Added data to add new task, then added method addTask
+to push the new data to the app. -->
+<!-- Import TaskItem to be able to use the new component
+and add components "TaskItem"  -->
 <script>
 import TaskItem from "./Task-item";
 
@@ -90,3 +104,9 @@ export default {
   },
 };
 </script>
+<!-- method isCompleted catches paramater task from App.vue
+and returns boolean -->
+<!-- inProgress returns boolean which we can use in
+the method clearCompleted by including a filter -->
+<!-- Added method removeTask with splice which 
+remove data from the task array. -->

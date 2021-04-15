@@ -1,3 +1,6 @@
+<!-- Added the list of items here -->
+<!-- To pass data from child to parent compontent we use
+@emit method using click event -->
 <template>
   <li>
     <button @click.self="$emit('complete')" :class="className">
@@ -7,6 +10,8 @@
   </li>
 </template>
 
+<!-- Added props to pass data from parent to child
+component -->
 <script>
 export default {
   name: "TaskItem",

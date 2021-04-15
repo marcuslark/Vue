@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- Imported child-compontent "task" -->
     <task v-bind:tasks="tasks"></task>
   </div>
 </template>
@@ -17,7 +18,7 @@ export default {
       tasks: [
         {
           id: 1,
-          title: "Learn Vue JS",
+          title: "Call bank",
           completed: true,
         },
         {
@@ -32,12 +33,12 @@ export default {
         },
         {
           id: 4,
-          title: "Learn guitar",
+          title: "Learn Drums",
           completed: false,
         },
         {
           id: 5,
-          title: "Send email",
+          title: "Clean House",
           completed: false,
         },
       ],
